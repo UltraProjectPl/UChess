@@ -1,4 +1,4 @@
-import './style/index.css';
+import '../style/index.css';
 
 const canvas = document.createElement('canvas');
 canvas.width = window.innerWidth;
