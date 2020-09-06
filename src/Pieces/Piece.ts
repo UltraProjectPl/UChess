@@ -16,6 +16,11 @@ export default abstract class Piece
         this.position = position;
     }
 
+    getPosition(): Position
+    {
+        return this.position;
+    }
+
     protected loadUrlIcon(url: string): void
     {
         this.url = url;
