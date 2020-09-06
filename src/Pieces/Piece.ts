@@ -3,6 +3,8 @@ export interface Position {
     y: number,
 }
 
+export type Moves = Position[];
+
 export default abstract class Piece
 {
     protected color: string;
@@ -35,4 +37,6 @@ export default abstract class Piece
             img.src = this.url;
         });
     }
+
+    public abstract move(): Moves;
 }

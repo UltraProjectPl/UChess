@@ -13,4 +13,34 @@ export default class Rook extends Piece
             super.loadUrlIcon(IconBlack.default);
         }
     }
+
+    public move(): Position[] {
+        const canMoves = [];
+
+        for (let i = this.position.x; i <= 7; i++) {
+            canMoves.push({
+                x: i,
+                y: this.position.y
+            });
+
+            canMoves.push({
+                x: this.position.x,
+                y: i
+            });
+        }
+
+        for (let i = this.position.x; i >= 0; i--) {
+            canMoves.push({
+                x: i,
+                y: this.position.y
+            });
+
+            canMoves.push({
+                x: this.position.x,
+                y: i
+            });
+        }
+
+        return canMoves;
+    }
 }

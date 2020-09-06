@@ -13,4 +13,23 @@ export default class Pawn extends Piece
             super.loadUrlIcon(IconBlack.default);
         }
     }
+
+    public move(): Position[] {
+        const canMoves = [];
+        const colorMove = this.color === 'black' ? 1 : -1;
+
+        canMoves.push({
+            x: this.position.x,
+            y: this.position.y + colorMove,
+        });
+
+        if ((this.position.y === 1 && this.color === 'black') || (this.position.y === 6 && this.color === 'white')) {
+            canMoves.push({
+                x: this.position.x,
+                y: this.position.y + colorMove * 2,
+            });
+        }
+
+        return canMoves;
+    }
 }

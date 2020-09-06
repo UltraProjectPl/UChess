@@ -13,4 +13,24 @@ export default class King extends Piece
             super.loadUrlIcon(IconBlack.default);
         }
     }
+
+    public move(): Position[] {
+        const canMoves = [
+            {x: 1, y: 0},
+            {x: 1, y: 1},
+            {x: 1, y: -1},
+            {x: 0, y: 1},
+            {x: 0, y: -1},
+            {x: -1, y: 0},
+            {x: -1, y: 1},
+            {x: -1, y: -1},
+        ];
+
+        for (let i = 0; i <= 7; i++) {
+            canMoves[i].x += this.position.x;
+            canMoves[i].y += this.position.y;
+        }
+
+        return canMoves;
+    }
 }

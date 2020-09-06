@@ -13,4 +13,50 @@ export default class Bishop extends Piece
             super.loadUrlIcon(IconBlack.default);
         }
     }
+
+    public move(): Position[] {
+        const canMoves = [];
+
+        let counter = 0;
+        for (let i = this.position.x; i <= 7; i++) {
+            canMoves.push({
+                x: i,
+                y: this.position.y + counter
+            });
+
+            canMoves.push({
+                x: i,
+                y: this.position.y - counter
+            });
+
+            counter++;
+        }
+
+        counter = 0;
+        for (let i = this.position.x; i >= 0; i--) {
+            canMoves.push({
+                x: i,
+                y: this.position.y
+            });
+
+            canMoves.push({
+                x: this.position.x,
+                y: i
+            });
+
+            canMoves.push({
+                x: i,
+                y: this.position.y + counter
+            });
+
+            canMoves.push({
+                x: i,
+                y: this.position.y - counter
+            });
+
+            counter++;
+        }
+
+        return canMoves;
+    }
 }
